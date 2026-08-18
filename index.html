@@ -11,6 +11,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -32,18 +36,56 @@
     .container {
       max-width: 960px;
       margin: 0 auto;
-      padding: 55px 28px 80px;
+      padding: 0 28px 80px;
+    }
+
+    /* ---------- NAVIGATION ---------- */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #eeeeee;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-name {
+      font-weight: 700;
+      color: #222;
+    }
+
+    .nav-links a {
+      margin-left: 22px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .nav-links a:hover {
+      color: #1769aa;
+      text-decoration: none;
     }
 
     /* ---------- HERO ---------- */
 
     .hero {
+      padding-top: 65px;
       margin-bottom: 45px;
     }
 
     h1 {
-      font-size: 42px;
-      margin: 0 0 8px;
+      font-size: 43px;
+      margin: 0 0 7px;
       letter-spacing: -1px;
     }
 
@@ -64,8 +106,8 @@
     }
 
     .links a {
-      margin-right: 18px;
-      font-weight: 500;
+      margin-right: 20px;
+      font-weight: 600;
     }
 
     /* ---------- METRICS ---------- */
@@ -74,8 +116,8 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      margin: 45px 0 55px;
-      padding: 28px 0;
+      margin: 45px 0 60px;
+      padding: 30px 0;
       border-top: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
     }
@@ -85,7 +127,7 @@
     }
 
     .metric-number {
-      font-size: 29px;
+      font-size: 30px;
       font-weight: 700;
     }
 
@@ -99,45 +141,51 @@
     /* ---------- SECTIONS ---------- */
 
     section {
-      margin-bottom: 55px;
+      margin-bottom: 60px;
+      scroll-margin-top: 90px;
     }
 
     h2 {
-      font-size: 26px;
-      margin-bottom: 25px;
+      font-size: 27px;
+      margin-bottom: 26px;
       border-bottom: 1px solid #e5e5e5;
       padding-bottom: 10px;
     }
 
-    /* ---------- NEWS ---------- */
+    /* ---------- RESEARCH ---------- */
 
-    .news-item {
+    .research-grid {
       display: grid;
-      grid-template-columns: 120px 1fr;
-      margin-bottom: 18px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
-    .news-date {
-      font-weight: 700;
-      color: #777;
-      font-size: 14px;
+    .research-card {
+      padding: 21px;
+      border: 1px solid #e1e1e1;
+      border-radius: 8px;
+      background: #fff;
     }
 
-    .news-text {
-      font-size: 16px;
+    .research-card strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 7px;
     }
 
     /* ---------- PUBLICATIONS ---------- */
 
     .publication {
-      margin-bottom: 32px;
+      margin-bottom: 34px;
+      padding-bottom: 3px;
     }
 
     .publication-title {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
       color: #1769aa;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+      line-height: 1.45;
     }
 
     .authors {
@@ -153,40 +201,38 @@
     }
 
     .pub-links {
-      margin-top: 7px;
+      margin-top: 8px;
     }
 
     .pub-links a {
-      margin-right: 12px;
+      margin-right: 14px;
       font-size: 14px;
       font-weight: 600;
     }
 
-    /* ---------- RESEARCH ---------- */
+    /* ---------- NEWS ---------- */
 
-    .research-grid {
+    .news-item {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      grid-template-columns: 110px 1fr;
+      margin-bottom: 18px;
     }
 
-    .research-card {
-      padding: 22px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+    .news-date {
+      font-weight: 700;
+      color: #777;
+      font-size: 14px;
     }
 
-    .research-card strong {
-      display: block;
-      font-size: 17px;
-      margin-bottom: 7px;
+    .news-text {
+      font-size: 16px;
     }
 
     /* ---------- FOOTER ---------- */
 
     footer {
       margin-top: 70px;
-      padding-top: 20px;
+      padding-top: 22px;
       border-top: 1px solid #ddd;
       color: #888;
       font-size: 13px;
@@ -197,12 +243,24 @@
 
     @media (max-width: 700px) {
 
+      .nav-inner {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
       h1 {
-        font-size: 34px;
+        font-size: 35px;
       }
 
       .metrics {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
       }
 
       .news-item {
@@ -212,23 +270,40 @@
       .news-date {
         margin-bottom: 3px;
       }
-
-      .research-grid {
-        grid-template-columns: 1fr;
-      }
     }
+
   </style>
 </head>
 
 <body>
 
+<nav>
+  <div class="nav-inner">
+
+    <div class="nav-name">
+      Xinxing Zhao
+    </div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#news">News</a>
+      <a href="#service">Service</a>
+      <a href="#education">Education</a>
+    </div>
+
+  </div>
+</nav>
+
+
 <div class="container">
 
   <!-- HERO -->
 
-  <div class="hero">
+  <div class="hero" id="home">
 
-    <h1>Xinxing Zhao</h1>
+    <h1>Dr. Xinxing Zhao</h1>
 
     <div class="subtitle">
       Research Scientist · AI for Cybersecurity
@@ -253,13 +328,13 @@
 
     <div class="links">
 
-      <a href="https://scholar.google.com/citations?user=Yp_-O1cAAAAJ&hl=en" target="_blank">
+      <a href="https://scholar.google.com/citations?user=Yp_-O1cAAAAJ&hl=en"
+         target="_blank">
         Google Scholar
       </a>
 
-
-
-      <a href="https://orcid.org/0000-0001-5815-043X" target="_blank">
+      <a href="https://orcid.org/0000-0001-5815-043X"
+         target="_blank">
         ORCID
       </a>
 
@@ -301,7 +376,7 @@
 
   <!-- RESEARCH -->
 
-  <section>
+  <section id="research">
 
     <h2>Research</h2>
 
@@ -336,43 +411,9 @@
   </section>
 
 
-  <!-- NEWS -->
+  <!-- SELECTED PUBLICATIONS -->
 
-  <section>
-
-    <h2>News</h2>
-
-    <div class="news-item">
-      <div class="news-date">2026</div>
-      <div class="news-text">
-        New work on <strong>Transformer-GAN based multi-view network anomaly
-        detection</strong>.
-      </div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-date">2026</div>
-      <div class="news-text">
-        Our threshold-free parallel Two-GAN network intrusion detection work
-        was published in the
-        <strong>Journal of Information Security and Applications</strong>.
-      </div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-date">2024</div>
-      <div class="news-text">
-        Our GAN-based network intrusion detection research was published in
-        <strong>Computers & Security</strong>.
-      </div>
-    </div>
-
-  </section>
-
-
-  <!-- PUBLICATIONS -->
-
-  <section>
+  <section id="publications">
 
     <h2>Selected Publications</h2>
 
@@ -380,7 +421,8 @@
     <div class="publication">
 
       <div class="publication-title">
-        Enhancing network intrusion detection performance using generative adversarial networks
+        Enhancing Network Intrusion Detection Performance Using
+        Generative Adversarial Networks
       </div>
 
       <div class="authors">
@@ -402,7 +444,8 @@
     <div class="publication">
 
       <div class="publication-title">
-   Threshold-free network anomaly detection via comparative reconstruction error learning with parallel GANs
+        Threshold-Free Network Anomaly Detection via Comparative
+        Reconstruction Error Learning with Parallel GANs
       </div>
 
       <div class="authors">
@@ -444,7 +487,8 @@
     <div class="publication">
 
       <div class="publication-title">
-     Application of Artificial Intelligence techniques for the detection of Alzheimer’s disease using structural MRI images
+        Application of Artificial Intelligence Techniques for the
+        Detection of Alzheimer's Disease Using Structural MRI Images
       </div>
 
       <div class="authors">
@@ -465,9 +509,46 @@
   </section>
 
 
+  <!-- NEWS -->
+
+  <section id="news">
+
+    <h2>News</h2>
+
+    <div class="news-item">
+      <div class="news-date">2026</div>
+
+      <div class="news-text">
+        New research on
+        <strong>Transformer-GAN based multi-view network anomaly detection</strong>.
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">2026</div>
+
+      <div class="news-text">
+        Our threshold-free parallel Two-GAN network intrusion detection work
+        was published in the
+        <strong>Journal of Information Security and Applications</strong>.
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">2024</div>
+
+      <div class="news-text">
+        Our GAN-based network intrusion detection research was published in
+        <strong>Computers & Security</strong>.
+      </div>
+    </div>
+
+  </section>
+
+
   <!-- SERVICE -->
 
-  <section>
+  <section id="service">
 
     <h2>Academic Service</h2>
 
@@ -482,26 +563,25 @@
 
   <!-- EDUCATION -->
 
-  <section>
+  <section id="education">
 
     <h2>Education</h2>
 
     <p>
-      <strong>Ph.D.</strong> — Artificial Intelligence in Heathcare Services, Singapore University of Technology and Design
+      <strong>Ph.D.</strong> — Artificial Intelligence in Healthcare Services,
+      Singapore University of Technology and Design
     </p>
 
     <p>
-      <strong>M.Eng.</strong> — Secure Communication and Networks, Nanyang Technologucal University
+      <strong>M.Eng.</strong> — Secure Communication and Networks,
+      Nanyang Technological University
     </p>
-
 
   </section>
 
 
   <footer>
-
     © 2026 Xinxing Zhao · Built with GitHub Pages
-
   </footer>
 
 </div>
