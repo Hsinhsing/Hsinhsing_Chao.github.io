@@ -1,12 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic website of Dr. Xinxing Zhao, researcher in artificial intelligence, cybersecurity, and network intrusion detection.">
 
   <title>Dr. Xinxing Zhao | AI for Cybersecurity</title>
 
   <style>
+    :root {
+      --ink: #17283b;
+      --muted: #5e6b79;
+      --accent: #1769aa;
+      --line: #e3e9ef;
+      --soft: #f5f8fb;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -17,15 +27,16 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                   Helvetica, Arial, sans-serif;
-      color: #222;
-      background: #ffffff;
-      line-height: 1.65;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
-      color: #1769aa;
+      color: var(--accent);
       text-decoration: none;
     }
 
@@ -34,92 +45,120 @@
     }
 
     .container {
-      max-width: 960px;
+      max-width: 1020px;
       margin: 0 auto;
-      padding: 0 28px 80px;
+      padding: 0 32px 72px;
     }
 
-    /* ---------- NAVIGATION ---------- */
+    /* NAVIGATION */
 
     nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.6);
-      border-bottom: 1px solid #eeeeee;
-      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
     }
 
     .nav-inner {
-      max-width: 60px;
-      margin: 0 auto;
-      padding: 14px 28px;
+      max-width: 1020px;
+      margin: auto;
+      padding: 16px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
     }
 
     .nav-name {
-      font-weight: 700;
-      color: #222;
+      font-weight: 750;
+      letter-spacing: -0.3px;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
-      margin-left: 22px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #555;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
-      color: #176aa;
+      color: var(--accent);
       text-decoration: none;
     }
 
-    /* ---------- HERO ---------- */
+    /* HERO */
 
     .hero {
-      padding-top: 65px;
-      margin-bottom: 45px;
+      padding: 78px 0 18px;
     }
 
     h1 {
-      font-size: 43px;
-      margin: 0 0 7px;
-      letter-spacing: -1px;
+      font-size: clamp(36px, 5vw, 54px);
+      line-height: 1.16;
+      margin: 0 0 14px;
+      letter-spacing: -1.8px;
     }
 
     .subtitle {
-      font-size: 1px;
-      color: #666;
-      margin-bottom: 24px;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 26px;
     }
 
     .intro {
       font-size: 17px;
-      max-width: 850px;
+      max-width: 790px;
+      color: #344456;
+    }
+
+    .intro p {
+      margin: 0 0 17px;
     }
 
     .links {
-      margin-top: 20px;
-      font-size: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 27px;
     }
 
     .links a {
-      margin-right: 20px;
-      font-weight: 600;
+      display: inline-block;
+      padding: 9px 16px;
+      font-size: 14px;
+      font-weight: 650;
+      border: 1px solid #cad9e7;
+      border-radius: 7px;
     }
 
-    /* ---------- METRICS ---------- */
+    .links a:hover {
+      background: var(--soft);
+      text-decoration: none;
+    }
+
+    /* METRICS */
 
     .metrics {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin: 45px 0 60px;
-      padding: 30px 0;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin: 47px 0 75px;
+      padding: 25px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
     }
 
     .metric {
@@ -127,136 +166,172 @@
     }
 
     .metric-number {
-      font-size: 30px;
-      font-weight: 700;
+      font-size: 32px;
+      font-weight: 760;
+      line-height: 1.3;
+      letter-spacing: -1px;
     }
 
     .metric-label {
-      font-size: 12px;
-      color: #777;
-      letter-spacing: 1.3px;
+      font-size: 11px;
+      font-weight: 650;
+      color: var(--muted);
+      letter-spacing: 1.2px;
       text-transform: uppercase;
     }
 
-    /* ---------- SECTIONS ---------- */
+    /* SECTIONS */
 
     section {
-      margin-bottom: 60px;
-      scroll-margin-top: 0px;
+      margin-bottom: 70px;
+      scroll-margin-top: 90px;
     }
 
     h2 {
       font-size: 27px;
-      margin-bottom: 26px;
-      border-bottom: 1px solid #e5e5e5;
-      padding-bottom: 10px;
+      letter-spacing: -0.5px;
+      margin: 0 0 27px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line);
     }
 
-    /* ---------- RESEARCH ---------- */
+    /* RESEARCH */
 
     .research-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .research-card {
-      padding: 21px;
-      border: 1px solid #e1e1e1;
-      border-radius: 8px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
       background: #fff;
+      color: #455363;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .research-card:hover {
+      border-color: #bbd1e5;
+      box-shadow: 0 5px 22px rgba(24, 65, 98, 0.06);
     }
 
     .research-card strong {
       display: block;
       font-size: 17px;
-      margin-bottom: 7px;
+      color: var(--ink);
+      margin-bottom: 8px;
     }
 
-    /* ---------- PUBLICATIONS ---------- */
+    /* PUBLICATIONS */
 
     .publication {
-      margin-bottom: 34px;
-      padding-bottom: 3px;
+      margin-bottom: 28px;
+      padding: 0 0 25px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .publication:last-child {
+      border-bottom: 0;
     }
 
     .publication-title {
       font-size: 18px;
-      font-weight: 700;
-      color: #176aa;
-      margin-bottom: 5px;
-      line-height: 1.45;
+      font-weight: 720;
+      color: var(--ink);
+      margin-bottom: 7px;
+      line-height: 1.5;
     }
 
     .authors {
-      font-size: 15px;
-      color: #444;
-      margin-bottom: 3px;
+      font-size: 14px;
+      color: #465568;
+      margin-bottom: 4px;
     }
 
     .venue {
-      font-size: 15px;
+      font-size: 14px;
       font-style: italic;
-      color: #555;
+      color: var(--muted);
     }
 
     .pub-links {
-      margin-top: 8px;
+      margin-top: 9px;
     }
 
     .pub-links a {
-      margin-right: 14px;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 650;
     }
 
-    /* ---------- NEWS ---------- */
+    /* NEWS */
 
     .news-item {
       display: grid;
-      grid-template-columns: 110px 1fr;
-      margin-bottom: 18px;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
     .news-date {
-      font-weight: 700;
-      color: #777;
       font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
     }
 
     .news-text {
-      font-size: 16px;
+      font-size: 15px;
+      color: #405063;
     }
 
-    /* ---------- FOOTER ---------- */
+    /* FOOTER */
 
     footer {
-      margin-top: 70px;
+      margin-top: 65px;
       padding-top: 22px;
-      border-top: 1px solid #ddd;
-      color: #888;
+      border-top: 1px solid var(--line);
+      color: #778390;
       font-size: 13px;
       text-align: center;
     }
 
-    /* ---------- MOBILE ---------- */
+    /* MOBILE */
 
-    @media (max-width: 700px) {
-
+    @media (max-width: 760px) {
       .nav-inner {
-        align-items: flex-start;
+        padding: 13px 20px;
+        display: block;
+      }
+
+      .nav-name {
+        margin-bottom: 9px;
       }
 
       .nav-links {
-        display: none;
+        gap: 15px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 3px;
       }
 
-      h1 {
-        font-size: 35px;
+      .container {
+        padding: 0 20px 55px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .intro {
+        font-size: 16px;
       }
 
       .metrics {
         grid-template-columns: repeat(2, 1fr);
+        gap: 22px 10px;
+        padding: 22px 12px;
+        margin-bottom: 55px;
       }
 
       .research-grid {
@@ -264,328 +339,328 @@
       }
 
       .news-item {
-        grid-template-columns: 1fr;
+        grid-template-columns: 65px 1fr;
       }
 
-      .news-date {
-        margin-bottom: 3px;
+      section {
+        scroll-margin-top: 120px;
       }
     }
 
+    @media (max-width: 380px) {
+      .metric-number {
+        font-size: 27px;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="nav-inner">
+  <!-- NAVIGATION -->
 
-    <div class="nav-name">
-      Xinxing Zhao
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-name">Xinxing Zhao</div>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#news">News</a>
+        <a href="#service">Service</a>
+        <a href="#education">Education</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+
+    <div class="hero" id="home">
+
+      <h1>Dr. Xinxing Zhao</h1>
+
+      <div class="subtitle">
+        Research Scientist · AI for Cybersecurity
+      </div>
+
+      <div class="intro">
+        <p>
+          Hi! I am Xinxing Zhao, a researcher working at
+          the intersection of
+          <strong>artificial intelligence and cybersecurity</strong>.
+          My research focuses on intelligent network intrusion
+          detection, generative models, anomaly detection,
+          and Transformer-based learning.
+        </p>
+
+        <p>
+          A central theme of my research is developing learning
+          systems capable of identifying complex and previously
+          unseen cyber threats through representations of
+          normal and malicious network behavior.
+        </p>
+      </div>
+
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=Yp_-O1cAAAAJ&amp;hl=en"
+           target="_blank" rel="noopener noreferrer">
+          Google Scholar
+        </a>
+
+        <a href="https://orcid.org/0000-0001-5815-043X"
+           target="_blank" rel="noopener noreferrer">
+          ORCID
+        </a>
+
+        <a href="mailto:Xinxing_zhao@alumni.sutd.edu.sg">
+          Email
+        </a>
+      </div>
+
     </div>
 
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#news">News</a>
-      <a href="#service">Service</a>
-      <a href="#education">Education</a>
+    <!-- METRICS -->
+
+    <div class="metrics">
+
+      <div class="metric">
+        <div class="metric-number">560+</div>
+        <div class="metric-label">Citations</div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-number">10</div>
+        <div class="metric-label">H-index</div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-number">20+</div>
+        <div class="metric-label">Publications</div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-number">8</div>
+        <div class="metric-label">Q1 Journals</div>
+      </div>
+
     </div>
 
-  </div>
-</nav>
+    <!-- RESEARCH -->
 
+    <section id="research">
 
-<div class="container">
+      <h2>Research</h2>
 
-  <!-- HERO -->
+      <div class="research-grid">
 
-  <div class="hero" id="home">
+        <div class="research-card">
+          <strong>AI for Cybersecurity</strong>
+          Machine learning and deep learning methods for
+          detecting and understanding cyber threats.
+        </div>
 
-    <h1>Dr. Xinxing Zhao</h1>
+        <div class="research-card">
+          <strong>Network Intrusion Detection</strong>
+          Intelligent detection of malicious and previously
+          unseen network behavior.
+        </div>
 
-    <div class="subtitle">
-      Research Scientist · AI for Cybersecurity
-    </div>
+        <div class="research-card">
+          <strong>Generative Models</strong>
+          Generative adversarial networks for data augmentation
+          and anomaly detection.
+        </div>
 
-    <div class="intro">
+        <div class="research-card">
+          <strong>Transformer Models</strong>
+          Sequence-based learning and attention mechanisms
+          for modeling temporal network behavior.
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PUBLICATIONS -->
+
+    <section id="publications">
+
+      <h2>Selected Publications</h2>
+
+      <div class="publication">
+        <div class="publication-title">
+          Enhancing Network Intrusion Detection Performance
+          Using Generative Adversarial Networks
+        </div>
+
+        <div class="authors">
+          <strong>Xinxing Zhao</strong>, et al.
+        </div>
+
+        <div class="venue">
+          Computers &amp; Security, 2024
+        </div>
+
+        <div class="pub-links">
+          <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167404824003109"
+             target="_blank" rel="noopener noreferrer">
+            Paper
+          </a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <div class="publication-title">
+          Threshold-Free Network Anomaly Detection via
+          Comparative Reconstruction Error Learning
+          with Parallel GANs
+        </div>
+
+        <div class="authors">
+          <strong>Xinxing Zhao</strong>, et al.
+        </div>
+
+        <div class="venue">
+          Journal of Information Security and Applications, 2026
+        </div>
+
+        <div class="pub-links">
+          <a href="https://www.sciencedirect.com/science/article/abs/pii/S2214212626001663"
+             target="_blank" rel="noopener noreferrer">
+            Paper
+          </a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <div class="publication-title">
+          Multi-View Learning of Normal Network Behavior
+          Using Transformer Generative Adversarial Networks
+          for Network Intrusion Detection
+        </div>
+
+        <div class="authors">
+          <strong>Xinxing Zhao</strong>, et al.
+        </div>
+
+        <div class="venue">
+          Manuscript in preparation
+        </div>
+      </div>
+
+      <div class="publication">
+        <div class="publication-title">
+          Application of Artificial Intelligence Techniques
+          for the Detection of Alzheimer's Disease
+          Using Structural MRI Images
+        </div>
+
+        <div class="authors">
+          <strong>Xinxing Zhao</strong>, et al.
+        </div>
+
+        <div class="venue">
+          Biocybernetics and Biomedical Engineering, 2021
+        </div>
+
+        <div class="pub-links">
+          <a href="https://www.sciencedirect.com/science/article/abs/pii/S0208521621000127"
+             target="_blank" rel="noopener noreferrer">
+            Paper
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- NEWS -->
+
+    <section id="news">
+
+      <h2>News</h2>
+
+      <div class="news-item">
+        <div class="news-date">2026</div>
+        <div class="news-text">
+          New research on
+          <strong>
+            Transformer-GAN based multi-view network
+            anomaly detection
+          </strong>.
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-date">2026</div>
+        <div class="news-text">
+          Our threshold-free parallel Two-GAN network
+          intrusion detection work was published in the
+          <strong>
+            Journal of Information Security and Applications
+          </strong>.
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-date">2024</div>
+        <div class="news-text">
+          Our GAN-based network intrusion detection research
+          was published in
+          <strong>Computers &amp; Security</strong>.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ACADEMIC SERVICE -->
+
+    <section id="service">
+
+      <h2>Academic Service</h2>
 
       <p>
-        Hi! I am Xinxing Zhao, a researcher working at the intersection of
-        <strong>artificial intelligence and cybersecurity</strong>.
-        My research focuses on intelligent network intrusion detection,
-        generative models, anomaly detection, and Transformer-based learning.
+        I regularly serve as a peer reviewer for international
+        journals in artificial intelligence, machine learning,
+        cybersecurity, healthcare informatics, and data science.
+      </p>
+
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+      <h2>Education</h2>
+
+      <p>
+        <strong>Ph.D.</strong> —
+        Artificial Intelligence in Healthcare Services,
+        Singapore University of Technology and Design
       </p>
 
       <p>
-        A central theme of my research is developing learning systems capable
-        of identifying complex and previously unseen cyber threats through
-        representations of normal and malicious network behavior.
+        <strong>M.Eng.</strong> —
+        Secure Communication and Networks,
+        Nanyang Technological University
       </p>
 
-    </div>
+    </section>
 
-    <div class="links">
+    <!-- FOOTER -->
 
-      <a href="https://scholar.google.com/citations?user=Yp_-O1cAAAAJ&hl=en"
-         target="_blank">
-        Google Scholar
-      </a>
-
-      <a href="https://orcid.org/0000-0001-5815-043X"
-         target="_blank">
-        ORCID
-      </a>
-
-      <a href="mailto:Xinxing_zhao@alumni.sutd.edu.sg">
-        Email
-      </a>
-
-    </div>
+    <footer>
+      © 2026 Xinxing Zhao · Built with GitHub Pages
+    </footer>
 
   </div>
-
-
-  <!-- METRICS -->
-
-  <div class="metrics">
-
-    <div class="metric">
-      <div class="metric-number">560+</div>
-      <div class="metric-label">Citations</div>
-    </div>
-
-    <div class="metric">
-      <div class="metric-number">10</div>
-      <div class="metric-label">H-index</div>
-    </div>
-
-    <div class="metric">
-      <div class="metric-number">20+</div>
-      <div class="metric-label">Publications</div>
-    </div>
-
-    <div class="metric">
-      <div class="metric-number">8</div>
-      <div class="metric-label">Q1 Journals</div>
-    </div>
-
-  </div>
-
-
-  <!-- RESEARCH -->
-
-  <section id="research">
-
-    <h2>Research</h2>
-
-    <div class="research-grid">
-
-      <div class="research-card">
-        <strong>AI for Cybersecurity</strong>
-        Machine learning and deep learning methods for detecting and
-        understanding cyber threats.
-      </div>
-
-      <div class="research-card">
-        <strong>Network Intrusion Detection</strong>
-        Intelligent detection of malicious and previously unseen network
-        behavior.
-      </div>
-
-      <div class="research-card">
-        <strong>Generative Models</strong>
-        Generative adversarial networks for data augmentation and anomaly
-        detection.
-      </div>
-
-      <div class="research-card">
-        <strong>Transformer Models</strong>
-        Sequence-based learning and attention mechanisms for modeling
-        temporal network behavior.
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- SELECTED PUBLICATIONS -->
-
-  <section id="publications">
-
-    <h2>Selected Publications</h2>
-
-
-    <div class="publication">
-
-      <div class="publication-title">
-        Enhancing Network Intrusion Detection Performance Using
-        Generative Adversarial Networks
-      </div>
-
-      <div class="authors">
-        <strong>Xinxing Zhao</strong>, et al.
-      </div>
-
-      <div class="venue">
-        Computers & Security, 2024
-      </div>
-
-
-
-      <div class="pub-links">
-  <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167404824003109" target="_blank">Paper</a>
-
-</div>
-    </div>
-
-
-    <div class="publication">
-
-      <div class="publication-title">
-        Threshold-Free Network Anomaly Detection via Comparative
-        Reconstruction Error Learning with Parallel GANs
-      </div>
-
-      <div class="authors">
-        <strong>Xinxing Zhao</strong>, et al.
-      </div>
-
-      <div class="venue">
-        Journal of Information Security and Applications, 2026
-      </div>
-
-      <div class="pub-links">
-  <a href="https://www.sciencedirect.com/science/article/abs/pii/S2214212626001663" target="_blank">Paper</a>
- 
-</div>
-
-    </div>
-
-
-    <div class="publication">
-
-      <div class="publication-title">
-        Multi-View Learning of Normal Network Behavior Using
-        Transformer Generative Adversarial Networks for
-        Network Intrusion Detection
-      </div>
-
-      <div class="authors">
-        <strong>Xinxing Zhao</strong>, et al.
-        
-      </div>
-
-      <div class="venue">
-        Manuscript in preparation
-      </div>
-
-    </div>
-
-
-    <div class="publication">
-
-      <div class="publication-title">
-        Application of Artificial Intelligence Techniques for the
-        Detection of Alzheimer's Disease Using Structural MRI Images
-      </div>
-
-      <div class="authors">
-        <strong>Xinxing Zhao</strong>, et al.
-      </div>
-
-      <div class="venue">
-        Biocybernetics and Biomedical Engineering, 2021
-      </div>
-
-      <div class="pub-links">
-  <a href="https://www.sciencedirect.com/science/article/abs/pii/S0208521621000127" target="_blank">Paper</a>
- 
-</div>
-
-    </div>
-
-  </section>
-
-
-  <!-- NEWS -->
-
-  <section id="news">
-
-    <h2>News</h2>
-
-    <div class="news-item">
-      <div class="news-date">2026</div>
-
-      <div class="news-text">
-        New research on
-        <strong>Transformer-GAN based multi-view network anomaly detection</strong>.
-      </div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-date">2026</div>
-
-      <div class="news-text">
-        Our threshold-free parallel Two-GAN network intrusion detection work
-        was published in the
-        <strong>Journal of Information Security and Applications</strong>.
-      </div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-date">2024</div>
-
-      <div class="news-text">
-        Our GAN-based network intrusion detection research was published in
-        <strong>Computers & Security</strong>.
-      </div>
-    </div>
-
-  </section>
-
-
-  <!-- SERVICE -->
-
-  <section id="service">
-
-    <h2>Academic Service</h2>
-
-    <p>
-      I regularly serve as a peer reviewer for international journals in
-      artificial intelligence, machine learning, cybersecurity, healthcare
-      informatics, and data science.
-    </p>
-
-  </section>
-
-
-  <!-- EDUCATION -->
-
-  <section id="education">
-
-    <h2>Education</h2>
-
-    <p>
-      <strong>Ph.D.</strong> — Artificial Intelligence in Healthcare Services,
-      Singapore University of Technology and Design
-    </p>
-
-    <p>
-      <strong>M.Eng.</strong> — Secure Communication and Networks,
-      Nanyang Technological University
-    </p>
-
-  </section>
-
-
-  <footer>
-    © 2026 Xinxing Zhao · Built with GitHub Pages
-  </footer>
-
-</div>
 
 </body>
 </html>
